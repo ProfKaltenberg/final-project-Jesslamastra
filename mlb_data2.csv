@@ -1,0 +1,116 @@
+Player,OPS,HR,BattingAvg,RBI,Position,Team,Salary,OFF,WAR
+Cal Raleigh,0.948,60,0.247,125,C,Mariners,2666667,7.7,7.3
+Kyle Schwarber,0.928,56,0.24,132,DH,Phillies,20000000,4.9,4.7
+Shohei Ohtani,1.014,55,0.282,102,DH/RHP,Dodgers,28213523,6.6,7.7
+Aaron Judge,1.145,53,0.331,114,OF,Yankees,40000000,9.4,9.7
+Junior Caminero,0.846,45,0.264,110,3B,Rays,764100,4.9,4.5
+Juan Soto,0.921,43,0.263,105,OF,Mets,61875000,7.0,6.2
+Pete Alonso,0.871,38,0.272,126,1B,Mets,30000000,4.4,3.4
+Riley Greene,0.806,36,0.258,111,OF,Tigers,812400,2.8,2.1
+Taylor Ward,0.792,36,0.228,103,OF,Angels,7825000,3.0,2.7
+Byron Buxton,0.878,35,0.264,83,OF,Twins,15142857,5.4,4.9
+Rafael Devers,0.851,35,0.252,109,DH,Red Sox,25813052,3.9,4.0
+Michael Busch,0.866,34,0.261,90,1B,Cubs,780500,4.4,4.5
+Trent Grisham,0.812,34,0.235,74,OF,Yankees,5000000,4.6,3.5
+Vinnie Pasquantino,0.798,32,0.264,113,1B,Royals,793250,2.5,2.4
+George Springer,0.959,32,0.309,84,OF,Blue Jays,24166667,5.5,4.8
+Seiya Suzuki,0.804,32,0.245,103,OF,Cubs,19000000,3.2,2.6
+Corbin Carroll,0.884,31,0.259,84,OF,Diamondbacks,5625000,5.0,5.8
+Pete Crow-Armstrong,0.768,31,0.247,95,OF,Cubs,771000,4.4,6.0
+Hunter Goodman,0.843,31,0.278,91,OF,Rockies,765000,3.8,3.7
+Shea Langeliers,0.861,31,0.277,72,C,Athletics,770000,4.2,3.9
+Francisco Lindor,0.812,31,0.267,86,SS,Mets,32477639,6.0,5.8
+Spencer Torkelson,0.789,31,0.24,78,1B,Tigers,785700,2.3,2.3
+James Wood,0.825,31,0.256,94,OF,Nationals,764600,3.6,3.7
+Willy Adames,0.739,30,0.225,87,SS,Giants,13142857,4.0,3.6
+Brent Rooker,0.814,30,0.262,89,OF,Athletics,4000000,2.8,2.3
+Cody Bellinger,0.814,29,0.272,98,OF,Yankees,27500000,3.8,5.0
+Matt Olson,0.85,29,0.272,95,1B,Braves,22000000,4.3,6.1
+Christian Yelich,0.795,29,0.264,103,OF,Brewers,24092771,3.0,3.1
+Ketel Marte,0.893,28,0.283,72,2B,Diamondbacks,19600000,4.3,4.4
+Randy Arozarena,0.76,27,0.238,76,OF,Mariners,11300000,4.1,3.9
+Bryce Harper,0.844,27,0.261,75,1B,Phillies,27538462,3.4,3.2
+Manny Machado,0.795,27,0.275,95,3B,Padres,17090909,3.8,4.1
+Andy Pages,0.774,27,0.272,86,OF,Dodgers,770000,3.0,3.8
+Zach Neto,0.793,26,0.257,62,SS,Angels,780000,3.7,5.1
+Jorge Polanco,0.821,26,0.265,78,2B,Mariners,7000000,3.0,2.6
+Ben Rice,0.836,26,0.255,65,DH,Yankees,782800,2.7,2.2
+Brandon Nimmo,0.76,25,0.262,92,OF,Mets,20500000,2.6,2.9
+Tyler Soderstrom,0.82,25,0.276,93,1B,Athletics,765000,3.3,4.4
+Trevor Story,0.741,25,0.263,96,SS,Red Sox,22500000,4.5,3.8
+Kyle Stowers,0.912,25,0.288,73,OF,Marlins,768200,3.5,3.6
+Freddie Freeman,0.869,24,0.295,90,1B,Dodgers,23353561,4.2,3.5
+Dansby Swanson,0.717,24,0.244,77,SS,Cubs,28000000,3.8,4.5
+Ian Happ,0.762,23,0.243,79,OF,Cubs,21000000,3.1,4.0
+Wilyer Abreu,0.786,22,0.247,69,OF,Red Sox,780000,1.6,3.2
+Elly De La Cruz,0.776,22,0.264,86,SS,Reds,770000,4.1,3.6
+Wyatt Langford,0.775,22,0.241,62,OF,Rangers,773500,3.9,5.6
+Kyle Tucker,0.841,22,0.266,73,OF,Cubs,16500000,4.7,4.5
+Matt Chapman,0.77,21,0.231,61,3B,Giants,25166667,3.6,4.1
+Jackson Chourio,0.771,21,0.27,78,OF,Brewers,4250000,2.7,2.2
+Corey Seager,0.86,21,0.271,50,SS,Rangers,32500000,4.4,6.1
+Mookie Betts,0.732,20,0.258,82,SS,Dodgers,26158692,3.2,4.8
+Willson Contreras,0.791,20,0.257,80,C,Cardinals,18000000,2.6,2.6
+Yainer Diaz,0.701,20,0.256,70,C,Astros,805600,2.2,2.7
+Ryan McMahon,0.693,20,0.214,53,3B,Rockies,12000000,1.2,2.2
+Josh Naylor,0.815,20,0.295,92,1B,Diamondbacks,10900000,3.2,3.1
+Isaac Paredes,0.81,20,0.254,53,3B,Astros,6625000,2.7,2.3
+Geraldo Perdomo,0.851,20,0.29,100,SS,Diamondbacks,2550000,6.8,7.0
+Daulton Varsho,0.832,20,0.238,55,OF,Blue Jays,8200000,1.7,2.8
+CJ Abrams,0.748,19,0.257,60,SS,Nationals,780600,4.0,3.3
+Drake Baldwin,0.81,19,0.274,80,C,Braves,760000,3.6,3.3
+Max Muncy,0.846,19,0.243,67,3B,Dodgers,14250000,3.3,3.6
+Max Muncy,0.638,9,0.214,23,2B,Athletics,760000,3.3,3.6
+Brett Baty,0.748,18,0.254,50,3B,Mets,774000,2.4,3.1
+Bo Bichette,0.84,18,0.311,94,SS,Blue Jays,17583333,4.7,3.4
+Alex Bregman,0.822,18,0.273,62,3B,Red Sox,25930874,3.3,3.5
+Brice Turang,0.794,18,0.288,81,2B,Brewers,777100,5.0,5.5
+Harrison Bader,0.796,17,0.277,54,OF,Twins,4750000,2.6,4.2
+William Contreras,0.754,17,0.26,76,C,Brewers,6000000,3.9,3.9
+Gunnar Henderson,0.787,17,0.274,68,SS,Orioles,782300,5.6,5.4
+Carson Kelly,0.761,17,0.249,50,C,Cubs,5000000,3.0,3.6
+Ryan O'Hearn,0.803,17,0.281,63,1B,Orioles,8000000,2.4,2.4
+Will Smith,0.901,17,0.296,61,C,Dodgers,12432934,4.7,4.5
+Mike Yastrzemski,0.736,17,0.233,46,OF,Giants,9250000,2.3,2.7
+Jarren Duran,0.774,16,0.256,84,OF,Red Sox,3750000,3.7,4.6
+Maikel Garcia,0.8,16,0.286,74,3B,Royals,774750,4.7,5.8
+Jackson Merrill,0.774,16,0.264,67,OF,Padres,809500,2.8,2.8
+Sean Murphy,0.709,16,0.199,45,C,Braves,15000000,1.5,2.4
+Ceddanne Rafaela,0.709,16,0.249,63,OF,Red Sox,1250000,2.4,4.8
+Gleyber Torres,0.745,16,0.256,74,2B,Tigers,15000000,3.3,2.9
+Alejandro Kirk,0.769,15,0.282,76,C,Blue Jays,4600000,2.3,2.3
+Otto Lopez,0.673,15,0.246,77,2B,Marlins,778500,2.2,3.5
+Marcus Semien,0.669,15,0.23,62,2B,Rangers,26000000,2.7,3.5
+Trea Turner,0.812,15,0.304,69,SS,Phillies,27272727,5.3,5.5
+Jonathan Aranda,0.882,14,0.316,59,DH,Rays,766500,2.7,3.4
+TJ Friedl,0.742,14,0.261,53,OF,Reds,780000,3.4,2.3
+Danny Jansen,0.72,14,0.215,36,C,Rays,8000000,1.7,2.6
+Dillon Dingler,0.752,13,0.278,57,C,Tigers,762600,2.9,3.1
+Matt Shaw,0.689,13,0.226,44,3B,Cubs,760000,1.9,3.1
+Bryson Stott,0.719,13,0.257,66,2B,Phillies,3200000,2.3,2.1
+Jacob Wilson,0.799,13,0.311,63,SS,Athletics,760000,4.0,2.9
+J.P. Crawford,0.722,12,0.265,58,SS,Mariners,11000000,4.0,3.7
+Sal Frelick,0.756,12,0.288,63,OF,Brewers,771800,2.4,3.0
+Zach McKinstry,0.771,12,0.259,49,3B,Tigers,1650000,3.1,2.9
+Jake Cronenworth,0.744,11,0.246,59,2B,Padres,11285714,3.2,2.4
+Steven Kwan,0.704,11,0.272,56,OF,Guardians,4175000,1.3,3.7
+Edmundo Sosa,0.776,11,0.276,39,INF,Phillies,3000000,1.4,2.3
+Brendan Donovan,0.775,10,0.287,50,2B,Cardinals,2850000,3.1,2.7
+Josh Smith,0.701,10,0.251,35,INF,Rangers,780500,3.3,3.0
+Ernie Clement,0.711,9,0.277,50,3B,Blue Jays,1975000,1.9,4.3
+Masyn Winn,0.673,9,0.253,51,SS,Cardinals,770850,2.0,2.2
+Nico Hoerner,0.739,7,0.297,61,2B,Cubs,11500000,4.5,6.1
+Jared Triolo,0.667,7,0.227,24,INF,Pirates,775000,1.4,2.4
+Myles Straw,0.68,4,0.262,32,OF,Blue Jays,6000000,0.9,2.9
+Taylor Walls,0.599,4,0.22,38,INF,Rays,1350000,0.6,2.6
+Xavier Edwards,0.696,3,0.283,43,SS,Marlins,772000,2.3,3.2
+Jake Meyers,0.727,3,0.292,24,OF,Astros,2300000,1.9,2.5
+Bryan Abreu,0.0,0,0.0,0,RHP,Astros,3450000,0.0,2.6
+Aroldis Chapman,0.0,0,0.0,0,LHP,Red Sox,10750000,0.0,3.5
+Jhoan Duran,0.0,0,0.0,0,RHP,Twins,4125000,0.0,3.2
+Josh Hader,0.0,0,0.0,0,LHP,Astros,19000000,0.0,2.3
+Kenley Jansen,0.0,0,0.0,0,RHP,Angels,10000000,0.0,2.4
+Ryne Nelson,2.0,0,1.0,1,RHP,Diamondbacks,825000,0.1,3.5
+Trevor Rogers,0.0,0,0.0,0,LHP,Orioles,2600000,-0.0,5.5
+Tyler Rogers,0.0,0,0.0,0,RHP,Giants,5250000,0.0,2.4
+Garrett Whitlock,0.0,0,0.0,0,RHP,Red Sox,5500000,0.0,2.4
