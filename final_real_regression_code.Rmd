@@ -1,0 +1,224 @@
+---
+title: "Regressions for Final 590 Project"
+output: html_document
+date: "2026-04-28"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+#### Libraries I need
+```{r cars}
+library(tidyverse)
+library(WDI)
+library(stargazer)
+```
+
+
+#### Importing Data
+```{r}
+data1 <- read_csv("C:/Users/lamas/OneDrive/Documents/eco590/final-project-Jesslamastra/mlb_data.csv")
+data2 <- read_csv("C:/Users/lamas/OneDrive/Documents/eco590/final-project-Jesslamastra/mlb_data2.csv")
+```
+
+## Cleaning Data
+1) Drop all players in data set where batting average = 0 (mostly pitchers and players that were hurt all season. I drop this because it would skew my results in a negative way)
+I only drop these values from data1 because pitchers still have WAR and OFF stats that I don't want dropped
+
+2) Encode position to dummy variable so I can include in regression
+
+3) Encode team to dummy variable so it can be included in regressions
+
+```{r}
+data1 <- data1[data1$OPS != 0 & data1$OPS != 2, ] #gets rid of rows where ops = 0 and 2
+
+data1$Position <- relevel(factor(data1$Position), ref = "OF") #changes position so i can use it in regressions
+data2$Position <- relevel(factor(data2$Position), ref = "OF")
+
+data1$Team <- relevel(factor(data1$Team), ref = "Yankees") #changes team so i can use it in regressions
+data2$Team <- relevel(factor(data2$Team), ref = "Yankees")
+
+```
+
+## Regressions
+Regression using 3 variables 
+Position omitted category is outfielder
+```{r}
+model <- lm(Salary ~ OPS + BattingAvg + HR + RBI + Position, data = data1)
+summary(model)
+
+```
+#### Results interpretation
+My regression shows that for a baseball player that has 0 ops, 0 batting average, and play no position a player is expected to make -8,113,324. This is just a projection on what players make, I have no instances in the data set that satisfy these circumstances which is why the number is a bit non-nonsensical.
+
+I quickly notice my regression doesn't make sense because of the scale of my variables. since batting average is always less and one and ops typically doesn't exceed 1.5 the interpretations are incorrect. 
+
+To fix this I am going to log Salary.
+
+```{r}
+model2 <- lm(log(Salary) ~ OPS + BattingAvg + HR + RBI + Position, data = data1)
+summary(model2)
+```
+
+#### After logging salary 
+
+A .1 increase in on base plus slugging (ops) results in a 23% increase in salary. 
+
+1 additional rbi(runs batted in) is associated with a 1.5% increase in yearly salary. 
+
+This makes more sense than my first regression. However the coefficient on batting average and home runs is still negative suggesting an increase in batting average and home runs results in a decrease of salary which doesn't make sense economically. Since OPS (on base plus slugging percentage) is derived from components that overlap with batting average and home runs, the variables are highly correlated. This makes it difficult to isolate their individual effects on salary. 
+
+Additionally, the only statistically significant variable in this regression is RBI and Position Infield. This is because of the multicollinearity that is observed however they are still important variables to include.
+
+I am going to drop OPS statistic to see the difference in coefficients.
+
+#### Question answered: What Batting Metric affects player salary most?
+```{r}
+model3 <- lm(log(Salary) ~ HR + BattingAvg + RBI + Position, data = data1)
+summary(model3)
+```
+#### Results 
+
+The regression logging salary and dropping OPS makes a lot of sense and can now be interpreted. 
+
+My regression shows if you have 0 home runs, a 0 percent batting average you will expect to get paid around 14 dollars per year. This instance is not in my data set. 
+
+1 additional home run leads to a .87% increase of yearly salary holding batting average, RBI, and position constant.
+
+A 0.1 increase in batting average leads to a 3.8% increase in yearly salary for MLB players holding home runs, RBI, and position constant
+
+One additional RBI leads to a 1.23% increase in yearly salary holding batting average, home runs, and position constant
+
+For position the omitted category it outfielder. So holding batting average, rbi, and home runs constant:
+- 1 baseman make .92% more per year than outfielders
+
+- 2 baseman makes 3.33% less than outfielders per year
+
+- 3 baseman make 22.84% more per year than outfielders
+
+- Catchers make 6.7% less than outfielders per year
+
+- Designated Hitters make 43.01% more than outfielders per year
+
+- DH and RHP (only 1 player in league pitches and hits - Ohtani) and makes 135.61% more per year than outfielders
+
+- Utility infielders make 56.16% less per year than outfielders
+
+- Right handed pitchers make 57.79% less per year than outfielders 
+
+- Short Stops make 15.09% more than outfielder per year
+
+I do want to mention in this regression that only RBI and position infield are statistically significant to salary. This model explains about 16% of variation in salary. However I have a lot of multicollinearity because my measures are all batting statistics and some measure similar things. This effects my standard errors in my model. 
+
+We could perform an F test to see how these metrics really effect salary and some more variables could be statistically significant in doing so.
+
+#### Run regression using filters database
+
+It is important to note the omitted category is Yankees 
+
+This regression model can show us if team impacts salary controling for runs batting in (RBI) and batting average (#hits/#at bats)
+
+```{r}
+model4 <- lm(log(Salary) ~ RBI + BattingAvg + Team, data = data1)
+summary(model4)
+```
+The results of this regression show the same thing that RBI is statistically significant to salary but not batting average. This suggests when analyzing and determining salary, managers and owners care more about when you get hits and if you drive in runs rather than how many hits you get. 
+
+This regression also shows that some teams are statistically significant in determining your salary. This could be due to how much money the franchise has or by the location in where you pay. The teams that show statistical significance are the Athletics and Marlins indicating that if you play for those teams you will make less compared to the New York Yankees (over 50 percent less).
+
+The adjusted R squared is .195 so 19.5 percent of variation in salary is determined by this model.
+
+
+#### Prefered Regression
+
+#### Question being answered: Does team you play on affect batting performance? (In terms of hitting home runs)
+
+I want to see if team and position affect OPS controlling for talent (WAR). War (wins above replacement) is calculated by combining offensive, defensive, and base running statistics and puts them in 1.  I want to see if team or position affect OPS because baseball stadium dimensions are different at every ballpark along with the air and weather. I am using team as a proxy for home field. 
+
+```{r}
+model5 <-lm(HR ~ WAR + Team + Position, data = data2)
+summary(model5)
+```
+#### Interpreting Regression
+
+This regression is asking if teams or position affect home runs controlling for player quality measured as WAR
+ 
+The regression shows us that WAR (wins above replacement) is statistically significant to how many home runs players hit. For one additional point in WAR the home runs per season increase by 3. 
+
+The regression also shows that team is not statistically significant for hitting home runs per season. We don't have strong enough evidence to claim that Yankees hit more home runs because they play more games at Yankee stadium (which has one of the shortest right fields in baseball).
+
+However the position players play do are significant in determining how many home runs players hit.
+
+- Second baseman hit 9 home runs less than outfielders when controlling for team and player quality
+
+- DH/RHP (which again is 1 person) hits 19 more home runs per season than outfielders when controlling for team and player quality
+
+- Infielders hit 12 home runs less than outfielders when controlling for team and player quality
+
+- Left handed pitchers hit 20 home runs less than outfielders when controlling for team and player quality
+
+- Right handed pitchers hit 22 home runs less than outfielders when controlling for team and player 
+
+- Short Stop hit 8 home runs less than outfielders when controlling for team and player quality
+
+Pitchers don't bat so the very high number makes sense as to why outfielders hit way more home runs per season than them.
+
+The adjusted R square is also very high for this model. 51% of variation in home runs is explained by the model.
+
+Shows that teams are mostly not statistically significant suggesting team affiliation does not strongly impact home runs hit.
+
+
+#### Putting above regressions into 1 table
+```{r results='asis'}
+stargazer(model5, model4, model3,
+          type = "html",
+          title = "Regression Results",
+          column.labels = c("How Positions Affect HR", "How Hits Affect Sal", "How Batting Metrics Affect Sal"),
+          dep.var.labels = c("", "", ""),
+          digits = 3,
+          omit = "Team",
+          dep.var.caption = "",
+          add.lines = list(c("Team Fixed Effects", "Yes", "Yes", "No"))
+)
+
+```
+
+
+#### Question being answered: Do traditional or advanced statistics affect salary more?
+```{r results='asis'}
+model6 <- lm(log(Salary) ~ HR + BattingAvg + RBI + Position, data = data1) # traditional stats only
+
+model7 <- lm(log(Salary) ~ WAR + OPS + Position, data = data2) #advanced stats only
+
+model8 <- lm(log(Salary) ~ HR + BattingAvg + RBI + WAR + Position, data = data2) # advanced plus traditional stats 
+
+stargazer(model6, model7, model8,
+          type = "html",
+          title = "Regression Results",
+          column.labels = c("Trad Stats on Sal", "Advance Stats on Sal", "All on Sal"),
+          dep.var.labels = c("", "", ""),
+          digits = 3,
+          omit = "Position",
+          dep.var.caption = "",
+          add.lines = list(c("Position Fixed Effects", "Yes", "Yes", "Yes"))
+)
+
+```
+
+#### Results explained
+
+This table compares explanatory power of traditional and advanced performance metrics in determining MLB players salary
+
+The traditional statistic model explains about 16% of variation in log salary
+
+The advanced statistic model performs worse having a negative adjusted R squared. It does show that WAR is marginally significant and OPS is not statistically significant most likely due to the overlap with WAR. The coefficient on OPS doesn't indicate a negative relationship with salary, however it indicates that OPS does not provide any additional information when WAR is controlled for. 
+
+In the combined model explanatory power declines as multicollinearity increases.
+
+Overall, the results show that salary is not strongly determined by either traditional or advanced offensive statistics alone, and much of the variation in salary is explained by other factors not included in my models.
+
+These conclusions might be skewed because of multicollinearity and should be analyzed further with F tests and other tools. 
